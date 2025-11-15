@@ -1,15 +1,17 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./Card.css";
 
 type CardProps = {
+  id: number;
   title: string;
   price: number;
   category: string;
   date: string;
-  status: string;       
-  priority: string;     
+  status: string;
+  priority: string;
   imageUrl?: string;
-  onOpen: () => void;
+  onOpen?: () => void;
 };
 
 const statusLabels: { [key: string]: string } = {
@@ -23,7 +25,19 @@ const priorityLabels: { [key: string]: string } = {
   urgent: "Срочный",
 };
 
-const Card: React.FC<CardProps> = ({ title, price, category, date, status, priority, imageUrl, onOpen }) => {
+const Card: React.FC<CardProps> = ({
+  id,
+  title,
+  price,
+  category,
+  date,
+  status,
+  priority,
+  imageUrl,
+  onOpen,
+}) => {
+  const navigate = useNavigate();
+
   const src = imageUrl ? imageUrl : "../../../img/placeholder.png";
 
   const dateObj = new Date(date);
@@ -35,23 +49,26 @@ const Card: React.FC<CardProps> = ({ title, price, category, date, status, prior
         year: "numeric",
       });
 
+  const handleClick = () => {
+    navigate(`/item/${id}`);
+    if (onOpen) onOpen();
+  };
+
   return (
     <div className="card">
       <img className="card-img" src={src} alt={title} />
       <div className="card-content">
-        <div className="card-title">{title}</div>
-        <div className="card-price">{price.toLocaleString()} ₽</div>
-        <div className="card-sub">
+        <h2 className="card-title">{title}</h2>
+        <p className="card-price">{price.toLocaleString()} ₽</p>
+        <p className="card-sub">
           {category} • {formattedDate}
-        </div>
-        <div className="card-status">
-          Статус: <b>{statusLabels[status] || status}</b>
-        </div>
-        <div className={`card-priority ${priority === "urgent" ? "priority-urgent" : ""}`}>
-          Приоритет: <b>{priorityLabels[priority] || priority}</b>
-        </div>
+        </p>
+        <p className="card-sub">
+          Статус: {statusLabels[status] || status} | Приоритет:{" "}
+          {priorityLabels[priority] || priority}
+        </p>
       </div>
-      <button className="card-btn" onClick={onOpen}>
+      <button className="card-btn" onClick={handleClick}>
         Открыть →
       </button>
     </div>

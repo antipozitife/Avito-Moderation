@@ -166,6 +166,7 @@ const MainPage = () => {
         currentPageAdverts.map((item) => (
           <Card
             key={item.id}
+            id={item.id}
             title={item.title}
             price={item.price}
             category={item.category}
