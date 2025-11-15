@@ -1,0 +1,140 @@
+.filters-root {
+  width: 100%;
+  background: #fbf0d3;
+  padding: 16px;
+  border-radius: 10px;
+  border: 2px solid #222;
+  margin-bottom: 18px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.filters-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.filters-caption {
+  font-size: 40px;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.filters-reset {
+  padding: 16px 40px;
+  border-radius: 8px;
+  background: #f6dadb;
+  border: 2px solid #222;
+  color: #222;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+.filters-reset:hover {
+  background: #f0d0d1;
+}
+
+.filters-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  width: 100%;
+}
+
+.filter-label {
+  font-size: 30px;
+  white-space: nowrap;
+  min-width: 130px;
+}
+
+.status-menu {
+  margin-top: 5px;
+  font-size: 25px;
+  display: flex;
+  gap: 50px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.category-search-row {
+  display: flex;
+  gap: 240px;
+  align-items: flex-start;
+}
+
+.category-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.category-menu {
+  font-size: 25px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px 30px;
+  width: 100%;
+}
+
+.search-price-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-grow: 1;
+}
+
+.search-input {
+  font-size: 20px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #aaa;
+  outline: none;
+  width: 100%;
+  max-width: 700px;
+  box-sizing: border-box;
+}
+
+.price-row {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.price-input {
+  font-size: 20px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #aaa;
+  outline: none;
+  width: 150px;
+  box-sizing: border-box;
+}
+
+.filter-input {
+  transition: border 0.2s ease;
+}
+
+.filter-input:focus {
+  border-color: #333;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: inherit;
+}
+
+label input[type="checkbox"] {
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+}
