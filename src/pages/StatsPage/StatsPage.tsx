@@ -87,7 +87,7 @@ export default function StatsPage() {
 
   return (
     <div className="stats-root-full">
-      <h2 className="stats-title">`/stats` — Статистика</h2>
+      <h2 className="stats-title">Статистика</h2>
       <div className="stats-period-card">
         Период:
         {periodOptions.map((opt) => (
@@ -100,9 +100,6 @@ export default function StatsPage() {
             {opt.label}
           </button>
         ))}
-        <span className="stats-period-icon" aria-label="дата" role="img">
-          📅
-        </span>
       </div>
       {loading ? (
         <div className="loading">Загрузка...</div>
@@ -128,7 +125,7 @@ export default function StatsPage() {
           </div>
 
           <div className="stats-block">
-            <div className="stats-block-title">📊 График активности ({activity.length} дней)</div>
+            <div className="stats-block-title">График активности ({activity.length} дней)</div>
             <div className="stats-bar-chart">
               {activity.map((point, i) => (
                 <div
@@ -147,8 +144,8 @@ export default function StatsPage() {
 
           <div className="stats-block" style={{ display: "flex", gap: "40px", flexWrap: "wrap" }}>
             <div style={{ flex: "1 1 300px", minWidth: 280 }}>
-              <div className="stats-block-title">📊 Распределение решений</div>
-              <ResponsiveContainer width="100%" height={250}>
+              <div className="stats-block-title">Распределение решений</div>
+              <ResponsiveContainer width="100%" height={300}>
                 <PieChart>
                   <Pie
                     data={pieData}
@@ -170,8 +167,8 @@ export default function StatsPage() {
             </div>
 
             <div style={{ flex: "1 1 300px", minWidth: 280 }}>
-              <div className="stats-block-title">📊 Категории объявлений</div>
-              <ResponsiveContainer width="100%" height={250}>
+              <div className="stats-block-title">Категории объявлений</div>
+              <ResponsiveContainer width="100%" height={300}>
                 <BarChart data={barData} margin={{ top: 5, bottom: 5 }}>
                   <CartesianGrid strokeDasharray="3 3" />
                   <XAxis dataKey="name" />
